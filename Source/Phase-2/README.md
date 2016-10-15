@@ -18,5 +18,3 @@ o	Scenario Identification: To develop a system, that can identify the scene of t
 o	Notification: To develop the functionality where the application alerts the security personnel if it finds a suspect in the vicinity.
 
 o	Reports: The application logs each and every instance of security threat and generates reports like the time of the day at which the possibility of robbery is high, the suspects history of robberies etc.
-
->>>>>>> 68888dab2cce3f9f9257f2c67fe4a890d5d3b9b0

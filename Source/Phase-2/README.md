@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # RTB-Project FALL 2016
 =======
 # RTB-Project FALL 2016

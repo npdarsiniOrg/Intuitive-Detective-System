@@ -7,12 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 
+import org.apache.commons.io.FileUtils;
+import org.openimaj.feature.local.list.LocalFeatureList;
+import org.openimaj.feature.local.matcher.consistent.ConsistentLocalFeatureMatcher2d;
 import org.openimaj.image.DisplayUtilities;
 import org.openimaj.image.FImage;
 import org.openimaj.image.ImageUtilities;
 import org.openimaj.image.MBFImage;
 import org.openimaj.image.colour.RGBColour;
 import org.openimaj.image.colour.Transforms;
+import org.openimaj.image.feature.local.engine.DoGSIFTEngine;
+import org.openimaj.image.feature.local.keypoints.Keypoint;
 import org.openimaj.image.processing.face.detection.DetectedFace;
 import org.openimaj.image.processing.face.detection.FaceDetector;
 import org.openimaj.image.processing.face.detection.HaarCascadeDetector;
@@ -46,6 +51,9 @@ public class FeatureExtraction {
      * @throws FileNotFoundException
      * @throws UnsupportedEncodingException
      */
+    static int i=0;
+    private ConsistentLocalFeatureMatcher2d<Keypoint> matcher;
+    private static MBFImage modelImage;
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, IOException {
 		/*
 		 * Construct a twitter stream with an
@@ -85,6 +93,10 @@ public class FeatureExtraction {
 //                DisplayUtilities.displayName(image, "image", true);
 //            }
 //        });s
+
+        final DoGSIFTEngine engine = new DoGSIFTEngine();
+        engine.getOptions().setDoubleInitialImage(true);
+        final String userName = args[0];
         final VideoCapture video = new VideoCapture(320, 240);
 //        Video<MBFImage> video = new XuggleVideo("data/ATM_converted.mkv");
         final VideoDisplay<MBFImage> vd = VideoDisplay.createVideoDisplay(video);
@@ -99,13 +111,31 @@ public class FeatureExtraction {
                         {
                             mfaces.add(frame.extractROI(face.getBounds()));
                         }
-                        int i=0;
+
                         for (final MBFImage face : mfaces) {
 
                             BufferedImage bImage = ImageUtilities.createBufferedImage(face);
-                            File f = new File("data/" + i + ".png");
+                            File f = new File("data/" + userName + i + ".png");
                             try {
                                 ImageIO.write(bImage, "png", f);
+                                bImage.flush();
+                                modelImage = ImageUtilities.readMBF(f);
+                                FImage modelF1 = Transforms.calculateIntensityNTSC(modelImage);
+                                final LocalFeatureList<Keypoint> kpl = engine.findFeatures(modelF1);
+                                System.out.println("Image" + i + " features: " + kpl);
+                                File fl = new File("data/" + userName+"Features.txt");
+//                                FileUtils.writeStringToFile(fl,userName+ ":");
+                                for (int i = 0; i < kpl.size(); i++) {
+//                                    if (polygon.contains(kpl.get(i).getX(), kpl.get(i).getY())) {
+                                        double c[] = kpl.get(i).getFeatureVector().asDoubleVector();
+                                        FileUtils.writeStringToFile(fl,userName+ ":", "UTF-8", true);
+                                        for (int j = 0; j < c.length; j++) {
+                                            FileUtils.writeStringToFile(fl,c[j] + " ", "UTF-8", true);
+                                        }
+                                    FileUtils.writeStringToFile(fl,"\n", "UTF-8", true);
+//                                    }
+                                }
+
                                 i++;
                             }
                             catch (Exception e) {

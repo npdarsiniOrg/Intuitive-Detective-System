@@ -52,6 +52,8 @@ public class SimpleProducer {
         properties.put("acks", "1");
         properties.put("max.message.bytes", "10000000");
         producer = new KafkaProducer<Integer, String>(properties);
+
+
     }
 
     public static void Frames(String path){

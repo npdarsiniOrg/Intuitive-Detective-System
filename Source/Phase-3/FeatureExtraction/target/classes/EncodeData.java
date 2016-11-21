@@ -1,7 +1,6 @@
-//import com.migcomponents.migbase64.Base64;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.codec.binary.Base64;
-import java.io.ByteArrayOutputStream;
+import org.apache.commons.io.IOUtils;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,8 +9,8 @@ import java.io.InputStream;
  * Created by harsha on 10/18/16.
  */
 public class EncodeData {
-    public static String encodeToString(String filePath){
-        String encodedString;
+    public static byte [] encodeToString(String filePath){
+        byte [] encodedString;
         InputStream inputStream = null;
         try {
             inputStream = new FileInputStream(filePath);
@@ -32,7 +31,7 @@ public class EncodeData {
             e.printStackTrace();
         }
 //        bytes = output.toByteArray();
-        encodedString = Base64.encodeBase64String(bytes);
+        encodedString = Base64.encodeBase64(bytes); //.toString(); //Base64.encodeBase64String(bytes);
         return encodedString;
     }
 }

@@ -1,4 +1,4 @@
-[info] Updating {file:/C:/Stuff/UMKC/RTBDA/Labs/Lab5/ImageClassification/project/}imageclassification-build...
+[info] Updating {file:/home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/}imageclassification-build...
 [debug] :: resolving dependencies :: default#imageclassification-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
@@ -16,7 +16,7 @@
 [debug] == resolving dependencies for default#imageclassification-build;0.1-SNAPSHOT [provided]
 [debug] == resolving dependencies default#imageclassification-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.4 [provided->default(compile)]
 [info] Resolving org.scala-lang#scala-library;2.10.4 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@65c9a1b9
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@53cd492f
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.4
 [debug] 	found org.scala-lang#scala-library;2.10.4 in sbt-chain
 [debug] 	[2.10.4] org.scala-lang#scala-library;2.10.4
@@ -147,28 +147,8 @@
 [debug] == resolving dependencies org.scala-sbt#completion;0.13.8->jline#jline;2.11 [compile->default(compile)]
 [info] Resolving jline#jline;2.11 ...
 [debug] sbt-chain: Checking cache for: dependency: jline#jline;2.11 {compile=[default(compile)]}
-[info] Resolving jline#jline;2.11 ...
-[debug] sbt-chain-delegate: Checking cache for: dependency: jline#jline;2.11 {compile=[default(compile)]}
-[debug] 		tried https://repo.typesafe.com/typesafe/ivy-releases/jline/jline/2.11/ivys/ivy.xml
-[debug] CLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/jline/jline/2.11/ivys/ivy.xml
-[debug] 	typesafe-ivy-releases: no ivy file found for jline#jline;2.11
-[debug] 		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/jline/jline/2.11/ivys/ivy.xml
-[debug] CLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/jline/jline/2.11/ivys/ivy.xml
-[debug] 	sbt-plugin-releases: no ivy file found for jline#jline;2.11
-[debug] 		tried C:\Users\meets\.ivy2\local\jline\jline\2.11\ivys\ivy.xml
-[debug] 	local: no ivy file found for jline#jline;2.11
-[debug] 		tried https://jcenter.bintray.com/jline/jline/2.11/jline-2.11.pom
-[debug] 	jcenter: found md file for jline#jline;2.11
-[debug] 		=> https://jcenter.bintray.com/jline/jline/2.11/jline-2.11.pom (2.11)
-[debug] downloading https://jcenter.bintray.com/jline/jline/2.11/jline-2.11.pom ...
-[debug] 	jcenter: downloading https://jcenter.bintray.com/jline/jline/2.11/jline-2.11.pom
-[debug] 	jcenter: downloading https://jcenter.bintray.com/jline/jline/2.11/jline-2.11.pom.sha1
-[debug] sha1 OK for https://jcenter.bintray.com/jline/jline/2.11/jline-2.11.pom
-[debug] 	[SUCCESSFUL ] jline#jline;2.11!jline.pom(pom.original) (514ms)
-[info] Resolving org.sonatype.oss#oss-parent;7 ...
-[debug] sbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}
-[debug] sbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7
-[debug] 	found jline#jline;2.11 in jcenter
+[debug] sbt-chain: module revision found in cache: jline#jline;2.11
+[debug] 	found jline#jline;2.11 in sbt-chain
 [debug] == resolving dependencies org.scala-sbt#completion;0.13.8->jline#jline;2.11 [compile->runtime]
 [debug] == resolving dependencies org.scala-sbt#completion;0.13.8->jline#jline;2.11 [compile->compile]
 [debug] == resolving dependencies org.scala-sbt#completion;0.13.8->jline#jline;2.11 [compile->master]
@@ -1786,19 +1766,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 11191ms :: artifacts dl 341ms
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT compile produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-compile.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT runtime produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-runtime.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT test produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-test.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT provided produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-provided.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT optional produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-optional.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT compile-internal produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-compile-internal.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT runtime-internal produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-runtime-internal.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT test-internal produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-test-internal.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT plugin produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-plugin.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT sources produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-sources.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT docs produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-docs.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT pom produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-pom.xml
-[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT scala-tool produced in C:\Stuff\UMKC\RTBDA\Labs\Lab5\ImageClassification\project\target\resolution-cache\reports\default-imageclassification-build-scala-tool.xml
-[debug] 	resolve done (11191ms resolve - 341ms download)
+[debug] :: resolution report :: resolve 1620ms :: artifacts dl 42ms
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT compile produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-compile.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT runtime produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-runtime.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT test produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-test.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT provided produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-provided.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT optional produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-optional.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT compile-internal produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-compile-internal.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT runtime-internal produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-runtime-internal.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT test-internal produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-test-internal.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT plugin produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-plugin.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT sources produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-sources.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT docs produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-docs.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT pom produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-pom.xml
+[debug] 	report for default#imageclassification-build;0.1-SNAPSHOT scala-tool produced in /home/npdarsini/RTB-Project/Source/Phase-3/ImageClassification/project/target/resolution-cache/reports/default-imageclassification-build-scala-tool.xml
+[debug] 	resolve done (1620ms resolve - 42ms download)
 [info] Done updating.

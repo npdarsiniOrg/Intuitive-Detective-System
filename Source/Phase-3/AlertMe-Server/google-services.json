@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "710597833096",
+    "project_id": "alertme-2ad70"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710597833096:android:b16bbe5e6c775372",
+        "android_client_info": {
+          "package_name": "edu.umkc.team6.alertme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBbITvlZZ6CNIYy6oC6U757F1hz5mshQ4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

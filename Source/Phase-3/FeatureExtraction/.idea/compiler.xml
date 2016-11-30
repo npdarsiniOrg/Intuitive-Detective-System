@@ -23,11 +23,11 @@
         <outputRelativeToContentRoot value="true" />
         <processor name="org.openimaj.citation.annotation.processor.ReferenceProcessor" />
         <processorPath useClasspath="true" />
-        <module name="demos" />
+        <module name="FeatureExtraction" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="demos" target="1.7" />
+      <module name="FeatureExtraction" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

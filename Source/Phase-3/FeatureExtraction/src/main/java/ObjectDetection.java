@@ -31,7 +31,7 @@ import java.util.List;
 //import org.openimaj.math.geometry.shape.Polygon;
 
 /**
- * Created by Naga on 16-09-2016.
+ * Created by Harsha on 16-11-2016.
  */
 public class ObjectDetection {
 

@@ -36,6 +36,11 @@ import org.openimaj.video.VideoDisplayListener;
 import org.openimaj.video.capture.VideoCapture;
 import org.openimaj.video.xuggle.XuggleVideo;
 import java.io.File;
+import java.nio.channels.FileChannel;
+import java.io.RandomAccessFile;
+import java.nio.channels.WritableByteChannel;
+
+import com.google.common.io.Closer;
 
 import static java.lang.Thread.sleep;
 
@@ -115,7 +120,7 @@ public class FeatureExtraction {
                         for (final MBFImage face : mfaces) {
 
                             BufferedImage bImage = ImageUtilities.createBufferedImage(face);
-                            File f = new File("data/" + userName + i + ".png");
+                            File f = new File("data/roi/" + userName + i + ".png");
                             try {
                                 ImageIO.write(bImage, "png", f);
                                 bImage.flush();
@@ -123,7 +128,7 @@ public class FeatureExtraction {
                                 FImage modelF1 = Transforms.calculateIntensityNTSC(modelImage);
                                 final LocalFeatureList<Keypoint> kpl = engine.findFeatures(modelF1);
                                 System.out.println("Image" + i + " features: " + kpl);
-                                File fl = new File("data/" + userName+"Features.txt");
+                                File fl = new File("data/features/" + userName+"Features.txt");
 //                                FileUtils.writeStringToFile(fl,userName+ ":");
                                 for (int i = 0; i < kpl.size(); i++) {
 //                                    if (polygon.contains(kpl.get(i).getX(), kpl.get(i).getY())) {
@@ -162,5 +167,40 @@ public class FeatureExtraction {
                     public void afterUpdate(VideoDisplay<MBFImage> display) {
                     }
                 });
+
+        File folder = new File("data/features");
+        File[] listOfFiles = folder.listFiles();
+        final Closer closer = Closer.create();
+
+        final RandomAccessFile outFile;
+        final FileChannel outChannel;
+
+        try {
+            outFile = closer.register(new RandomAccessFile("output/features.txt", "rw"));
+            outChannel = closer.register(outFile.getChannel());
+            for (final File file: listOfFiles)
+                doWrite(outChannel, file);
+        } finally {
+            closer.close();
+        }
+
+    }
+
+    // doWrite method for merging all users' feature files into single file
+
+    private static void doWrite(final WritableByteChannel channel, final File file)
+            throws IOException {
+        final Closer closer = Closer.create();
+
+        final RandomAccessFile inFile;
+        final FileChannel inChannel;
+
+        try {
+            inFile = closer.register(new RandomAccessFile(file, "r"));
+            inChannel = closer.register(inFile.getChannel());
+            inChannel.transferTo(0, inChannel.size(), channel);
+        } finally {
+            closer.close();
+        }
     }
 }

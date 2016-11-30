@@ -33,6 +33,7 @@ public class EncodeData {
         }
 //        bytes = output.toByteArray();
         encodedString = Base64.encodeBase64String(bytes);
+
         return encodedString;
     }
 }

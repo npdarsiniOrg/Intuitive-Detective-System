@@ -4,7 +4,7 @@
 		module="imageclassification$sources_javadoc_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20161129135348"
+		publication="20161205204918"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

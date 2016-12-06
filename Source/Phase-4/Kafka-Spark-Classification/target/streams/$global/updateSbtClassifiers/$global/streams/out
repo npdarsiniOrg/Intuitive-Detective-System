@@ -1,6 +1,7 @@
 [debug] Other repositories:
 [debug] Default repositories:
 [debug] Using inline dependencies specified in Scala.
+[debug] no default cache defined: set to /home/harsha/.ivy2/cache
 [debug] :: resolving dependencies :: imageclassification#imageclassification$sbt_2.11;1.0
 [debug] 	confs: [default]
 [debug] 	validate = true
@@ -144,7 +145,6 @@
 [debug] == resolving dependencies org.scala-sbt#actions;0.13.8->org.scala-sbt#api;0.13.8 [compile->default(compile)]
 [info] Resolving org.scala-sbt#api;0.13.8 ...
 [debug] sbt-chain: Checking cache for: dependency: org.scala-sbt#api;0.13.8 {compile=[default(compile)]}
-[debug] no default cache defined: set to /home/harsha/.ivy2/cache
 [debug] sbt-chain: module revision found in cache: org.scala-sbt#api;0.13.8
 [debug] 	found org.scala-sbt#api;0.13.8 in sbt-chain
 [debug] == resolving dependencies org.scala-sbt#api;0.13.8->org.scala-lang#scala-library;2.10.4 [compile->default(compile)]
@@ -704,9 +704,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.8!test-agent.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
-[debug] :: resolution report :: resolve 1637ms :: artifacts dl 74ms
+[debug] :: resolution report :: resolve 10906ms :: artifacts dl 407ms
 [debug] 	report for imageclassification#imageclassification$sbt_2.11;1.0 default produced in /media/harsha/64B41DEAB41DBF8A/RTB-Project/Source/Phase-4/Kafka-Spark-Classification/target/resolution-cache/reports/imageclassification-imageclassification$sbt_2.11-default.xml
-[debug] 	resolve done (1637ms resolve - 74ms download)
+[debug] 	resolve done (10906ms resolve - 407ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: imageclassification#imageclassification$sources_2.11;1.0
 [debug] 	confs: [default]
@@ -1070,6 +1070,6 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_8_2;0.13.8!precompiled-2_8_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_2;0.13.8!precompiled-2_9_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_3;0.13.8!precompiled-2_9_3.jar(src)
-[debug] :: resolution report :: resolve 304ms :: artifacts dl 75ms
+[debug] :: resolution report :: resolve 1805ms :: artifacts dl 344ms
 [debug] 	report for imageclassification#imageclassification$sources_2.11;1.0 default produced in /media/harsha/64B41DEAB41DBF8A/RTB-Project/Source/Phase-4/Kafka-Spark-Classification/target/resolution-cache/reports/imageclassification-imageclassification$sources_2.11-default.xml
-[debug] 	resolve done (304ms resolve - 75ms download)
+[debug] 	resolve done (1805ms resolve - 344ms download)

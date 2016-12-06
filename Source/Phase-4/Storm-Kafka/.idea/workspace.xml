@@ -336,7 +336,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AlertMe-Server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ImageClassification" />
   </component>
   <component name="RunManager" selected="Application.StormKafkaMain">
     <configuration default="false" name="StormKafkaMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -916,12 +916,12 @@
       <workItem from="1480557519849" duration="3252000" />
       <workItem from="1480717257937" duration="12582000" />
       <workItem from="1480875471395" duration="2524000" />
-      <workItem from="1480975116060" duration="1132000" />
+      <workItem from="1480975116060" duration="1720000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44725000" />
+    <option name="totallyTimeSpent" value="45313000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="697" extended-state="6" />

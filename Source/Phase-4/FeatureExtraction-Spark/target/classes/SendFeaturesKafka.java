@@ -17,7 +17,7 @@ public class SendFeaturesKafka {
         String topic = "featuresToSpark";
         Producer<Integer, String> producer;
         Properties properties = new Properties();
-        properties.put("metadata.broker.list", "10.111.1.19:9092");
+        properties.put("metadata.broker.list", "127.0.0.1:9092");
         properties.put("serializer.class", "kafka.serializer.StringEncoder");
         properties.put("request.required.acks", "1");
         properties.put("max.message.bytes", "20971520");

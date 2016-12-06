@@ -10,6 +10,7 @@ import org.apache.storm.kafka.ZkHosts;
 import org.apache.storm.spout.SchemeAsMultiScheme;
 import org.apache.storm.topology.TopologyBuilder;
 
+import java.util.UUID;
 
 public class StormKafkaMain {
     private static final String KAFKA_TOPIC ="featuresToStorm";
@@ -48,16 +49,19 @@ public class StormKafkaMain {
     private static StormTopology createTopology()
     {
         SpoutConfig kafkaConf = new SpoutConfig(
-                new ZkHosts("localhost:2181"),
+                new ZkHosts("127.0.0.1:2181"),
                 KAFKA_TOPIC,
-                "/kafka",
-                "KafkaSpout");
+                "/" + KAFKA_TOPIC,
+                UUID.randomUUID().toString());
+        kafkaConf.useStartOffsetTimeIfOffsetOutOfRange = true;
+        kafkaConf.ignoreZkOffsets = true;
+        kafkaConf.startOffsetTime = kafka.api.OffsetRequest.LatestTime();
         kafkaConf.scheme = new SchemeAsMultiScheme(new StringScheme());
         TopologyBuilder topology = new TopologyBuilder();
-        topology.setSpout("kafka_spout_features", new KafkaSpout(kafkaConf), 1);
-        topology.setBolt("priya", new priyaBolt(), 1).shuffleGrouping("kafka_spout_features");
-        topology.setBolt("harsha", new harshaBolt(), 1).shuffleGrouping("kafka_spout_features");
-        topology.setBolt("aish", new aishBolt(), 1).shuffleGrouping("kafka_spout_features");
+        topology.setSpout("kafka_spout_audioFeatures", new KafkaSpout(kafkaConf), 4);
+        topology.setBolt("priya", new priyaBolt(), 4).shuffleGrouping("kafka_spout_audioFeatures");
+        topology.setBolt("harsha", new harshaBolt(), 4).shuffleGrouping("kafka_spout_audioFeatures");
+        topology.setBolt("aish", new aishBolt(), 4).shuffleGrouping("kafka_spout_audioFeatures");
   
         return topology.createTopology();
     }

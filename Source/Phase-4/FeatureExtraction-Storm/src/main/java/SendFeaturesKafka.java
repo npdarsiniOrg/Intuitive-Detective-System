@@ -55,7 +55,7 @@ public class SendFeaturesKafka {
 //        String encStrFName = fileName + ";" + encStr;
         String encStrFName = encStr;
         System.out.println("Encoded String: " + encStrFName.length());
-        KeyedMessage<Integer, String> data = new KeyedMessage<Integer, String>(topic, encStrFName);//Encoding the Video
+        KeyedMessage<Integer, String> data = new KeyedMessage<Integer, String>(topic, "-119.0 -39.0 -63.0 -128.0 -128.0 -124.0 -113.0 -118.0 29.0 -5.0 -122.0 -128.0 -128.0 -128.0 -125.0 -110.0 -55.0 -93.0 -127.0 -128.0 -128.0 -128.0 -128.0 -128.0 -128.0 -123.0 -125.0 -128.0 -128.0 -128.0 -128.0 -128.0 -86.0 -32.0 -86.0 -128.0 -128.0 -127.0 -128.0 -128.0 31.0 -18.0 -124.0 -128.0 -128.0 -128.0 -128.0 -125.0 10.0 -100.0 -127.0 -128.0 -128.0 -128.0 -128.0 -127.0 -128.0 -122.0 -124.0 -128.0 -128.0 -128.0 -128.0 -128.0 -41.0 -109.0 -116.0 -125.0 -110.0 -100.0 -126.0 -115.0 31.0 -117.0 -128.0 -128.0 -128.0 -128.0 -126.0 -27.0 -25.0 -122.0 -128.0 -128.0 -128.0 -128.0 -100.0 -79.0 -127.0 -126.0 -128.0 -128.0 -128.0 -128.0 -104.0 -122.0 -40.0 -127.0 -125.0 -122.0 -117.0 -121.0 -127.0 -98.0 31.0 -128.0 -128.0 -128.0 -128.0 -128.0 -123.0 31.0 -107.0 -128.0 -128.0 -128.0 -128.0 -128.0 -61.0 -61.0 -128.0 -128.0 -128.0 -128.0 -128.0 -128.0 -81.0 -121.0");//Encoding the Video
 //        System.out.println("Data is:"+ data);
         producer.send(data);
         System.out.println("Message Sent");

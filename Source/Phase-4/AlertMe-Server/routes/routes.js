@@ -3,6 +3,7 @@ var registerFunction = require('../functions/register');
 var devicesFunction = require('../functions/devices');
 var deleteFunction = require('../functions/delete');
 var sendFunction = require('../functions/send-message');
+var alertsFunction = require('../functions/alerts');
 
 module.exports = function(app,io) {
 
@@ -60,6 +61,15 @@ module.exports = function(app,io) {
 	app.get('/devices',function(req,res) {
 
 		devicesFunction.listDevices(function(result) {
+
+			res.json(result);
+
+		});
+	});
+
+	app.get('/c_team6_predictions',function(req,res) {
+
+		alertsFunction.listAlerts(function(result) {
 
 			res.json(result);
 

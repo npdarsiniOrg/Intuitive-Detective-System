@@ -59,7 +59,9 @@ public class CreateBolt {
 //                    "            double[] feature = fromString(r[1]);\n" +
                     "            double[] feature = fromString(s);\n" +
                     "            Boolean check = check" + name + "(feature);\n" +
+                            "if(check == true) {\n" +
                     "            insertIntoMongoDB(check);\n" +
+                            "}\n" +
 //                    "            basicOutputCollector.emit(new Values(filename,check));\n" +
                     "        }\n" +
                     "        catch (Exception e)\n" +

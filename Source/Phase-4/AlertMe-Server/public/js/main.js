@@ -1,9 +1,13 @@
-var app =   angular.module('Push', ['ngMaterial']);
-
+var app =   angular.module('Push', ['ngMaterial']).run(function ($rootScope) {
+    $rootScope.oldMsg = 'none';
+});
+// app.value('OldMsg',{oldMsg:'none'});
 var socket = io();
+// var oldMsg = 'none';
+
+app.controller('pushController', function($scope,$window,$http,$mdDialog,$mdToast, $rootScope) {
 
 
-app.controller('pushController', function($scope,$window,$http,$mdDialog,$mdToast) {
 
 socket.on('update', function (data) {
 
@@ -26,6 +30,16 @@ function getDevices(){
 
 	});
 }
+
+
+function getAlerts() {
+    $http.get('/c_team6_predictions').then(function(response){
+
+        $scope.alerts = response.data;
+
+    });
+}
+getAlerts();
 
 function deleteDevice(index,devices) {
 
@@ -66,7 +80,65 @@ $scope.showDeleteConfirmDialog = function(ev,index,devices) {
 
     });
 };
+    $scope.oldMsg = 'none';
 
+$scope.sendAlert = function(ev, index) {
+    var fileContents='harsha';
+    // function sleep(ms) {
+    //     return new Promise(resolve = setTimeout(resolve, ms));
+    // }
+
+
+    $scope.oldMsg  = 'none';
+    // while(true) {
+        console.log("Alert from main: " + $scope.alerts);
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", 'alerts.txt', false); // false for synchronous request
+        xmlHttp.send(null);
+        msg = xmlHttp.responseText;
+        // msg = $scope.alerts;
+        // //if not the previous alert message
+        console.log('Previous oldMsg: ' + $scope.oldMsg);
+        console.log('message: ' + msg);
+        if (msg != "") {
+            if ($scope.oldMsg != msg) {
+                $scope.oldMsg = msg;
+                console.log('Latest oldMsg: ' + $rootScope.oldMsg);
+                $scope.progress = true;
+                var message = msg;
+
+                var registrationId = $scope.devices[index].registrationId;
+                console.log('okay' + message + registrationId);
+
+                var params = {
+
+                    message: message,
+                    registrationId: registrationId
+                };
+
+                $http.post('/send', params).then(function (response) {
+
+                    $scope.progress = false;
+
+                    // showAlert(ev,response.data.message);
+
+
+                }, function (response) {
+
+                    console.log(response);
+
+                });
+            }
+            // var msg = $http.get('alerts.txt').success(function(response){
+            //     return response.data;
+            // });
+        }
+        // setTimeout(function () {
+        //     continue;
+        // }, 2000);
+
+    // }
+};
 
 $scope.showSendMessageDialog = function(ev,index) {
 

@@ -31,7 +31,8 @@ public class CreateStromMainClass {
                 "import org.apache.storm.kafka.StringScheme;\n" +
                 "import org.apache.storm.kafka.ZkHosts;\n" +
                 "import org.apache.storm.spout.SchemeAsMultiScheme;\n" +
-                "import org.apache.storm.topology.TopologyBuilder;\n" +
+                "import org.apache.storm.topology.TopologyBuilder;\n\n" +
+                "import java.util.UUID;" +
                 "\n" +
                 "\n" +
                 "public class StormKafkaMain {\n" +
@@ -71,10 +72,13 @@ public class CreateStromMainClass {
                 "    private static StormTopology createTopology()\n" +
                 "    {\n" +
                 "        SpoutConfig kafkaConf = new SpoutConfig(\n" +
-                "                new ZkHosts(\"localhost:2181\"),\n" +
+                "                new ZkHosts(\"127.0.0.1:2181\"),\n" +
                 "                KAFKA_TOPIC,\n" +
-                "                \"/kafka\",\n" +
-                "                \"KafkaSpout\");\n" +
+                "                \"/\" + KAFKA_TOPIC,\n" +
+                "                UUID.randomUUID().toString());\n" +
+                "        kafkaConf.useStartOffsetTimeIfOffsetOutOfRange = true;\n" +
+                "        kafkaConf.ignoreZkOffsets = true;\n" +
+                "        kafkaConf.startOffsetTime = kafka.api.OffsetRequest.LatestTime();\n" +
                 "        kafkaConf.scheme = new SchemeAsMultiScheme(new StringScheme());\n" +
                 "        TopologyBuilder topology = new TopologyBuilder();\n"
 
